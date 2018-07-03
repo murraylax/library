@@ -1,0 +1,42 @@
+# Latex files
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+
+# R files
+.Rhistory
+.RData
+*.tar.gz
+*.Rcheck
+.Rproj.user
+vignettes/*.html
+vignettes/*.pdf
+.httr-oauth
+/*_cache/
+/cache/
+*.utf8.md
+*.knit.md
+*.DS_Store
+
+# Temporary emacs file
+*~
