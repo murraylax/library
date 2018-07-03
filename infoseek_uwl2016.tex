@@ -1,0 +1,592 @@
+\documentclass{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage{verbatim}
+\usepackage{array}
+
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{pgf}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{tabu}
+
+\usepackage{siunitx}
+\sisetup{input-symbols=(), group-digits  = false} 
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+
+\newcommand{\ft}[1]{
+  \frametitle{\begin{tabular}{p{4.2in}r} \textcolor{white}{#1} & \small{\insertframenumber / \inserttotalframenumber} \end{tabular}}
+  \setbeamercovered{transparent=18}
+}
+
+\newcommand{\eft}[1]{
+  \frametitle{\begin{tabular}{p{4in}r} \textcolor{white}{#1} & \small{\hyperlink{f:questions}{\beamergotobutton{GO BACK}}} \end{tabular}}
+  \setbeamercovered{transparent=18}
+}
+
+\newcommand{\stepinv}{\setbeamercovered{invisible}}
+\newcommand{\stopinv}{\setbeamercovered{transparent=18}}
+\newcommand{\uncoverinv}[1]
+{
+  \setbeamercovered{invisible}
+  \uncover<+->{#1}
+  \setbeamercovered{transparent=18}
+}
+\newcommand{\ans}[1]{\textcolor{blue}{#1}}
+\newcommand{\ansinv}[1]
+{
+  \setbeamercovered{invisible}
+  \uncover<+->{\textcolor{blue}{#1}}
+  \setbeamercovered{transparent=18}
+}
+\newcommand{\setinv}{\setbeamercovered{invisible}}
+\newcommand{\setvis}{\setbeamercovered{transparent=18}}
+\newcommand{\centerpic}[2]
+{
+  \begin{center}
+  \includegraphics[#1]{#2}
+  \end{center}
+}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+
+\definecolor{light}{rgb}{0.95,0.75,0.75}
+\definecolor{BrickRed}{rgb}{0.3,0.05,0.05}
+\newcommand{\hl}[1]{\only<#1>{\cellcolor{light}}}
+
+\newcommand{\cbox}[1]{\begin{tcolorbox}[colback=red!20,colframe=red!40!black]\begin{center}#1\end{center}\end{tcolorbox}}
+
+\definecolor{mycolor}{rgb}{0.5,0.1,0.1}
+\usecolortheme[named=mycolor]{structure}
+
+\title[Undergraduate Information Seeking Behavior]{Factors that Influence Undergraduate Information-Seeking Behavior and Lead to Success}
+
+\author[James Murray, University of Wisconsin - La Crosse]
+       {
+         Sloan Komissarov\\
+         University of Wisconsin - La Crosse (formerly)\\
+         Western Technical college\\
+         \ \\
+         James Murray\\
+         Department of Economics\\
+         University of Wisconsin - La Crosse
+       }
+       
+\date{UW-L Faculty Research Day\\Januarty 21, 2016}
+
+\begin{document}
+
+\frame{\titlepage \setcounter{framenumber}{0}}
+
+\frame{
+  \ft{Information Seeking Behavior}
+  \textbf{Definition:} Process by which students find sources to use for papers and projects that involve library research.
+
+  \ \\
+  
+  \begin{columns}
+    \column{2in}
+    \cbox{Search Engines \\ \scriptsize{\ \\(Electronic databases, Google Scholar, Google, Yahoo!)}}
+     \ \\
+ 
+     \cbox{Types of Sources \\ \scriptsize{\ \\(Scholarly articles, books, popular press, Wikipedia, Blogs)}}
+     
+    \column{2in}
+    \cbox{Qualities of Sources \\ \scriptsize{\ \\(Full text online, peer-reviewed, journal reputation, author reputation)}}
+\ \\
+
+    \cbox{Student's Physical Location \\ \scriptsize{ \ \\ (Library, on-campus, residence)}}  
+  \end{columns}
+}
+
+\frame{
+  \ft{Purpose}
+
+  \begin{tcolorbox}[colback=red!40!black,colframe=red!40!black]{\textcolor{white}{1. Describe student information seeking behavior at UWL}}\end{tcolorbox}
+
+  \begin{tcolorbox}[colback=gray!20,colframe=red!40!black,title=2. What factors influence it?]{
+      \bi
+    \item Factors that library staff and instructors can control
+    \item Background, demographic, and academic variables
+      \ei
+  }\end{tcolorbox}
+}
+
+\frame{
+  \ft{Literature}
+
+  \uncover<+->{
+  \begin{block}{\textit{Convenience} is a driving factor for search engine choice}
+    \bi
+    \item<+-> Popular search engines are most popular
+    \item<+-> To blame: Volume and complexity of library search tools (Lee, H., 2008; Connaway et al., 2011; Taylor, 2012; Lee, J., 2012; Rempel, 2013)
+    \item<+-> Georgas (2013) directly observed students... not knowing what they were looking at...
+    \item<+-> Still, students have a high self evaluation of their research skills (Georgas 2013, 2014)
+    \ei      
+  \end{block}}
+
+  \uncover<+->{
+  \begin{block}{No change with academic progression}
+    \bi
+    \item Mbabu et al. (2012): Juniors and seniors used the subscription databases less than freshmen and sophomores.
+    \item Callinan (2005): Both first-year and final-year students struggled to use library electronic resources.
+      \ei
+  \end{block}}
+}
+
+\frame
+{
+  \ft{Method}
+  \uncover<+->{
+    \begin{block}{Survey sent to UW-L students in Fall 2013}
+      542 respondents \\
+      Variables include...
+      \bi
+      \item Information seeking behavior
+      \item Experience with instructors and library staff
+      \item Academic, background, and demographic variables
+      \ei
+    \end{block}
+  }
+
+  \uncover<+->{
+  \begin{block}{Strategy}
+    \be
+    \item Describe data on students' information seeking behavior
+      \bi \item \textit{Identify opportunities!} \ei
+      
+    \item Estimate influences from other variables
+      
+    \ee
+  \end{block}
+  }
+}
+
+\frame{
+  \ft{Where do students start searching?}
+
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+    \rowcolor{mycolor} \textcolor{white}{Resource} & \textcolor{white}{Frequency} & \textcolor{white}{Percentage} \\ \hline
+Library electronic resource & 202 & 42\% \\
+\rowcolor{light} Google.com & 188 & 39\% \\
+Google Scholar & 73 & 15\% \\
+\rowcolor{light} Wikipedia & 6 & 1\% \\
+Other & 6 & 1\% \\ \hline
+\rowcolor{light} Total Responses & 476 & 100\% \\\hline
+\end{tabular}
+  \end{center}
+  
+  \bi
+  \item Significant number start with library's resources
+  \item A majority start from a scholarly source
+  \item Comfortable, convenient search engines (Google.com) still very popular.
+  \ei
+  
+}
+
+\frame{
+  \ft{Library Search Engine Use}
+
+  \scriptsize{
+  \hspace*{-1pc}\begin{tabular}{|l|cccccc|} \hline
+    \rowcolor{mycolor} \textcolor{white}{Attribute} & \parbox{2.2pc}{\begin{center}\textcolor{white}{Never / Not sure (1)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Rarely (2)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{\hspace*{-2sp}Sometimes (3)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Most of the time (4)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Always (5)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Interp. Median}\end{center}} \\ \hline
+    & & & & & &  \\
+    EBSCO & 27 (5\%) & 29 (6\%) & 111 (23\%) & 122 (46\%) & 98 (20\%) & 3.84 \\
+    & & & & & &  \\
+    \parbox{3pc}{Subject-Specific} & 116 (24\%) & 121 (25\%) & 152 (31\%) & 77 (16\%) & 20 (4\%) & 2.53 \\
+    & & & & & &  \\ \hline
+  \end{tabular}
+  }
+
+  \normalsize{
+  \bi
+  \item On average, high reported usage of library search engines
+  \item Subject-specific databases are not as common
+  \item \textit{Useful features:} narrow by peer review, narrow by date range
+    \ei
+  }
+}
+
+
+\frame{
+  \ft{Sources Students Use}
+
+  \scriptsize{
+  \hspace*{-1pc}\begin{tabular}{|l|cccccc|} \hline
+    \rowcolor{mycolor} \textcolor{white}{Attribute} & \parbox{2.2pc}{\begin{center}\textcolor{white}{Never / Not sure (1)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Rarely (2)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{\hspace*{-2sp}Sometimes (3)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Most of the time (4)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Always (5)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Interp. Median}\end{center}} \\ \hline
+    & & & & & &  \\
+
+    \parbox{2pc}{Scholarly\newline Articles} & 16 (3\%) & 42 (9\%) & 124 (25\%) & 164 (33\%) & 174 (30\%) & 3.89 \\
+     & & & & & &  \\
+   \parbox{2pc}{Wikipedia etc.} & 48 (10\%) & 133 (27\%) & 143 (29\%) & 126 (25\%) & 45 (9\%) & 2.96 \\
+     & & & & & &  \\
+    Books & 33 (7\%) & 125 (25\%) & 194 (39\%) & 101 (20\%) & 43 (9\%) & 2.96 \\
+     & & & & & &  \\
+    \parbox{2pc}{Popular Press} & 55 (11\%) & 156 (32\%) & 171 (35\%) & 84 (17\%) & 28 (6\%) & 2.71 \\
+     & & & & & &  \\ \hline
+    
+  \end{tabular}
+  }
+
+  \normalsize{
+  \textit{Scholarly articles} comes in first... \textit{Wikipedia} strong second.
+  }
+}
+
+
+\frame{
+  \ft{Qualities Students Value}
+
+  \scriptsize{
+  \hspace*{-1pc}\begin{tabular}{|l|cccccc|} \hline
+    \rowcolor{mycolor} \textcolor{white}{Attribute} & \parbox{2.2pc}{\begin{center}\textcolor{white}{Not Important (1)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Somewhat Unimportant (2)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Neutral (3)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Somewhat Important (4)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Very Important (5)}\end{center}}
+    & \parbox{2.2pc}{\begin{center}\textcolor{white}{Interp. Median}\end{center}} \\ \hline
+
+    Relevant & 1 (0\%) & 0 (0\%) & 9 (2\%) & 84 (19\%) & 342 (78\%) & 4.86 \\ [0.5pc]
+\rowcolor{light} Full Text & 1 (0\%) & 11 (3\%) & 17 (4\%) & 132 (30\%) & 276 (63\%) & 4.71 \\ [0.5pc]
+Understand & 2 (0\%) & 6 (1\%) & 16 (4\%) & 173 (41\%) & 224 (53\%) & 4.56 \\[0.5pc]
+\rowcolor{light} \parbox{2.2pc}{Recent} & 4 (1\%) & 18 (4\%) & 19 (5\%) & 201 (49\%) & 166 (41\%) & 4.31 \\ [0.5pc]
+\parbox{2.4pc}{Peer\newline Reviewed} & 6 (2\%) & 41 (11\%) & 62 (16\%) & 131 (35\%) & 138 (37\%) & 4.11 \\ [0.75pc]
+\rowcolor{light} \parbox{2.2pc}{Author\newline Reputation} & 5 (1\%) & 32 (9\%) & 56 (15\%) & 163 (43\%) & 120 (32\%) & 4.08 \\ [0.75pc]
+\parbox{2.2pc}{Source\newline Reputation} & 4 (1\%) & 39 (11\%) & 76 (21\%) & 181 (49\%) & 70 (19\%) & 3.8 \\ [0.75pc]
+\rowcolor{light} \parbox{2.2pc}{Physical\newline Availability} &52 (14\%) & 96 (26\%) & 71 (19\%) & 96 (26\%) & 57 (15\%) & 3.04 \\ [0.5pc] \hline
+
+  \end{tabular}
+  }
+
+}
+
+\frame {
+  \ft{Convenience versus Academic Quality}
+  \bi
+  \item Students admit to valuing convenience highly\\
+  (full text available online)
+  \item Popular use of Wikipedia, popular search engines
+  \item Still, scholarly articles and library search tools are also in high usage
+  \ei
+}
+
+\frame{
+  \ft{Where are students?}
+
+  When doing work for projects involving library research, where do you students do most of this work?
+  
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+    \rowcolor{mycolor} \textcolor{white}{Location} & \textcolor{white}{Frequency} & \textcolor{white}{Percentage} \\ \hline
+On-campus Library & 316 & 58\% \\
+\rowcolor{light} Residence & 201 & 37\% \\
+Other Off Campus & 14 & 3\% \\ \hline
+\rowcolor{light} Other On Campus & 11 & 2\% \\ \hline
+\end{tabular}
+  \end{center}
+
+  At the library.
+  
+}
+
+\frame{
+  \ft{How often are students at the library?}
+
+    About once per week.
+
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+    \rowcolor{mycolor} \textcolor{white}{Location} & \textcolor{white}{Frequency} & \textcolor{white}{Percentage} \\ \hline
+More than 4 times per week (5) & 84 & 16\% \\
+\rowcolor{light} 2-3 times per week (4) & 134 & 25\% \\
+Once per week (3) & 83 & 15\% \\ 
+\rowcolor{light} 2-3 times per month (2) & 135 & 25\% \\ 
+Once per month or less (1) & 106 & 20\% \\ \hline
+\rowcolor{light} Interpolated Median & 2.86 & \\ \hline
+
+\end{tabular}
+  \end{center}
+
+  
+}
+
+
+\frame {
+  \ft{Benefits to using the library}
+
+  Library is popular
+  
+  \bi
+  \item Library staff to help search process
+  \item Only general access computer lab on campus
+  \item Easy to download articles from university-paid subscriptions
+  \ei
+}
+
+
+\frame{
+  \ft{Do students ask library staff for help?}
+
+  Rarely.
+  
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+    \rowcolor{mycolor} \textcolor{white}{Location} & \textcolor{white}{Frequency} & \textcolor{white}{Percentage} \\ \hline
+Very often (5) & 6 & 1\% \\
+\rowcolor{light} Often (4) & 21 & 4\% \\
+Sometimes (3) & 98 & 19\% \\ 
+\rowcolor{light} Rarely (2) & 244 & 47\% \\ 
+Never (1) & 149 & 29\% \\ \hline
+\rowcolor{light} Interpolated Median & 1.95 & \\ \hline
+
+\end{tabular}
+  \end{center}
+  
+}
+
+
+\frame{
+  \ft{Opportunity}
+  \bi
+  \item Students use the library
+  \item Students use library search databases
+  \item Students use and value scholarly sources
+  \item Popular search engines and Wikipedia are still very popular
+  \ei
+}
+
+\frame{
+  \ft{Factors that influence information seeking behavior}
+
+  \footnotesize{
+  \begin{block}{Variables Staff / Instructors Control}
+    \bi
+    \item \textit{Encourage:} Do instructors encourage students to use electronic databases?  (=1 if frequently)
+    \item \textit{List:} Do instructors give reading lists? (=1 if frequently/occasionally)
+    \item \textit{ClassVisit:} Did a library staff member visit their class? (=1 if so)
+      \ei
+  \end{block}
+
+
+  \begin{block}{Academic Variables}
+    \bi
+    \item \textit{ColBus} and \textit{ColSci}: Binary variable for colleges of business and science, respectively.  Omitted category is College of Liberal Studies.
+    \item \textit{ACT}: College entrance exam score
+      \ei
+  \end{block}
+
+  \begin{block}{Demographic Variables}
+    \bi
+    \item \textit{Age}
+    \item \textit{ParentEdu:} =1 if at least one parent has 4-year college degree 
+    \item \textit{Female:} =1 if student identifies as female
+    \item \textit{Non-white:} =1 if student identifies race as something other than white
+    \ei
+  \end{block}
+  }
+    
+}
+
+
+\frame{
+  \ft{What influences starting point of the search process?}
+
+  Dependent variable: \textbf{Scholarly starting point} \newline(Library resource or Google Scholar)
+
+  \begin{center}Logistic Regression Results\end{center}
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+    \rowcolor{mycolor} \textcolor{white}{Variable} & \textcolor{white}{Coefficient} & \textcolor{white}{P-Value} \\ \hline
+Constant	&	-1.06	&	0.445	\\
+\hl{2}Encourage	&	\hl{2} 0.86	&	\hl{2} 0.000***	\\
+\hl{3}List	&	\hl{3} -0.52	&	\hl{3} 0.013**	\\
+ClassVisit	&	-0.05	&	0.848	\\
+ColBus	&	-0.36	&	0.192	\\
+ColSci	&	-0.15	&	0.541	\\
+ACT	&	-0.02	&	0.584	\\
+Age	&	0.05	&	0.118	\\
+ParentEdu	&	-0.12	&	0.576	\\
+Female	&	0.62	&	0.008***	\\
+Nonwhite	&	1.02	&	0.091*	\\ \hline
+    \end{tabular}
+    \end{center}
+
+}
+
+
+\frame{
+  \ft{What influences use of library databases?}
+
+  Dependent variable: Highest \textbf{frequency using EBSCO or subject-specific databases} (ordinal scale)
+
+  \begin{center}Ordered Logit Regression Results\end{center}
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+      \rowcolor{mycolor} \textcolor{white}{Variable} & \textcolor{white}{Coefficient} & \textcolor{white}{P-Value} \\ \hline
+
+\hl{2}Encourage	&	\hl{2} 1.65	&	\hl{2} 0.000***	\\
+List	&	0.25	&	0.185	\\
+\hl{2}ClassVisit	&	\hl{2} 0.72	&	\hl{2} 0.001***	\\
+\hl{3}ColBus	&	\hl{3} -0.71	&	\hl{3} 0.004***	\\
+\hl{3}ColSci	&	\hl{3} -0.55	&	\hl{3} 0.011***	\\
+ACT	&	0.04	&	0.239	\\
+Age	&	0.01	&	0.79	\\
+ParentEdu	&	0.29	&	0.138	\\
+Female	&	0.45	&	0.034**	\\
+Nonwhite	&	0.3	&	0.54	\\ \hline
+
+    \end{tabular}
+    \end{center}
+
+}
+
+
+\frame{
+  \ft{What influences use of scholarly articles?}
+
+  Dependent variable: \textbf{Frequency using scholarly articles} for papers/projects (ordinal scale)
+
+  \begin{center}Ordered Logit Regression Results\end{center}
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+      \rowcolor{mycolor} \textcolor{white}{Variable} & \textcolor{white}{Coefficient} & \textcolor{white}{P-Value} \\ \hline
+
+\hl{2}Encourage	&	\hl{2} 1.192	&	  \hl{2} 0.002***	\\
+List	&	-0.151	&	0.407	\\
+ClassVisit	&	0.248	&	0.268	\\
+\hl{3}ColBus	&	\hl{3} -0.472	&	\hl{3} 0.047**	\\
+\hl{3}ColSci	&	\hl{3} -0.475	&	\hl{3} 0.025**	\\
+ACT	&	0.148	&	 0.005***	\\
+Age	&	0.008	&	0.774	\\
+ParentEdu	&	-0.02	&	0.916	\\
+Female	&	0.308	&	0.15	\\
+Nonwhite	&	-0.011	&	0.982	\\ \hline
+
+
+    \end{tabular}
+    \end{center}
+
+}
+
+
+\frame{
+  \ft{What influences use of Wikipedia?}
+
+  Dependent variable: \textbf{Frequency using Wikipedia}, blogs, etc., for papers/projects (ordinal scale)
+
+  \begin{center}Ordered Logit Regression Results\end{center}
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+      \rowcolor{mycolor} \textcolor{white}{Variable} & \textcolor{white}{Coefficient} & \textcolor{white}{P-Value} \\ \hline
+
+Encourage	&	0.016	&	0.967	\\
+List	&	0.075	&	0.679	\\
+ClassVisit	&	0.139	&	0.523	\\
+\hl{2}ColBus	&	\hl{2}0.85	&	\hl{2}0.000***	\\
+\hl{2}ColSci	&	\hl{2}0.346	&	\hl{2}0.096*	\\
+ACT	&	0.08	&	0.045**	\\
+Age	&	-0.041	&	0.162	\\
+ParentEdu	&	0.146	&	0.438	\\
+Female	&	0.021	&	0.92	\\
+Nonwhite	&	0.358	&	0.412	\\ \hline
+
+
+    \end{tabular}
+    \end{center}
+
+}
+
+\frame{
+  \ft{What influences What Students Values?}
+
+  Dependent variable: Value judgment for \textbf{peer-review}\newline(ordinal scale)
+
+  \begin{center}Ordered Logit Regression Results\end{center}
+  \begin{center}
+    \taburulecolor{mycolor}
+    \begin{tabular}{|l|cc|}\hline
+      \rowcolor{mycolor} \textcolor{white}{Variable} & \textcolor{white}{Coefficient} & \textcolor{white}{P-Value} \\ \hline
+Encourage	&	0.631	&	0.17	\\
+\hl{2}List	&	\hl{2}0.552	&	\hl{2}0.006***	\\
+\hl{2}ClassVisit	&	\hl{2}0.472	&	\hl{2}0.058*	\\
+\hl{3}ColBus	&	\hl{3}-0.698	&	\hl{3}0.009***	\\
+ColSci	&	0.161	&	0.5	\\
+ACT	&	0.087	&	0.114	\\
+Age	&	-0.022	&	0.513	\\
+ParentEdu	&	-0.309	&	0.146	\\
+Female	&	-0.297	&	0.205	\\
+Nonwhite	&	0.183	&	0.741	\\ \hline
+    \end{tabular}
+    \end{center}
+}
+
+\frame{
+  \ft{What about the other qualities students value?}
+  \begin{block}{Other qualities besides peer-reviewed}
+    Relevancy, Full text available, Understandable, Recent, Author Reputation, Source Reputation, Physical Availability
+  \end{block}
+
+  A lot of regressions show \textbf{not much} of any of these are explained by group of explanatory variables.
+}
+
+\frame {
+  \ft{Conclusions}
+  \uncover<+->{
+  \begin{block}{Good and questionable information-seeking behavior}
+    \bi
+    \item We have a lot of students using library electronic databases and finding scholarly articles
+    \item We also have a lot of students using Google.com and Wikipedia.org
+    \item Students have presence on campus and in library
+    \ei
+  \end{block}
+  }
+
+  \uncover<+->{
+  \begin{block}{Staff and instructors can make a difference}
+    \bi
+    \item Instructors encouragement leads to more use of electronic databases and scholarly articles
+    \item Giving reading lists leads to more value for peer-review, but less use of electronic databases
+    \item Class visits by library staff leads to higher use of electronic databases, higher value for peer-review
+    \item More need in colleges of business and science/health
+    \ei
+  \end{block}
+  }
+}
+
+
+
+
+\end{document}

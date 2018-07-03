@@ -1,0 +1,121 @@
+library("psych");
+
+data <- read.csv("library_results.csv");
+
+v.class <- 2-data$Q26;
+encourage <- data$Q28;
+v.encourage.occ <- (encourage < 3) + 0; # Union of Occasionally and Frequently
+v.encourage.freq <- (encourage < 2) + 0; # Just Frequently
+list <- data$Q37;
+v.list.occ <- (list < 3) + 0; # Union of Occasionally and Frequently
+v.list.freq <- (list < 2) + 0; # Just Frequently
+college <- data$Q17;
+v.cba <- (college == 1) + 0;
+v.csh <- (college == 3) + 0;
+v.semesters <- data$Q38;
+gpa <- data$Q40;
+gpa[gpa==1] <- NA;
+gpa <- 18 - gpa;
+v.gpa <- gpa*0.1 + 2.35;
+v.female <- data$Q7 -1;
+v.age <- data$Q8 + 16;
+v.dorm <- (data$Q2==1) + 0;
+v.dorm.ever <- (data$Q50==1)+0;
+v.act <- 22 - data$Q13 + 15;
+v.parents.somecollege <- (data$Q9 > 2) + 0; # Some college or greater
+v.parents.fourcollege <- (data$Q9 > 4) + 0; # Four year degree or greater
+v.nonwhite <- (data$Q47 != 5) + 0;
+v.computerconf <- (4-data$Q48);
+v.computerconf.bin <- (data$Q48 < 3) + 0;
+
+# ############################################## #
+# Information seeking behavior outcome variables
+# ############################################## #
+# Get help from librarian or reference desk: 0-4 scale
+v.gethelp <- 5-data$Q6_1;
+# Perform online searches for articles: 0-4 scale
+v.onlinesearch <- 5-data$Q6_2;
+# Browse physical copies of books or periodicals
+v.browse <- 5-data$Q6_3;
+
+v.askq <- 4 - data$Q22;
+v.howoften <- data$Q5 - 1;
+v.uselib <- (data$Q4==1) + 0;
+v.usecampus <- (data$Q4==2) + 0;
+ebsco <- data$Q29;
+ebsco[ebsco==6] <- 5;
+v.ebsco <- 5-ebsco;
+subject <- data$Q31
+subject[subject==6] <- 5
+v.subject <- 5-subject
+v.searchdata <- pmax(v.subject,v.ebsco);
+
+
+# Use books for research 0-4 scale
+v.res.books <- 5 - data$Q23_1;
+# Use scholarly articles for research 0-4 scale
+v.res.articles <- 5 - data$Q23_2;
+# Use popular press articles for research: 0-4 scale
+v.res.poppress <- 5 - data$Q23_3;
+# Use online blogs, wikipedia, etc: 0-4 scale
+v.res.wiki <- 5 - data$Q23_4;
+
+# Where students start their search
+v.start.lib <- (data$Q34>3 & data$Q34<7) + 0;
+v.start.popsearch <- (data$Q34==1 | data$Q34==3 | data$Q34==7) + 0;
+v.start.googlescholar <- (data$Q34==2) + 0;
+v.start.scholar <- ((data$Q34>3 & data$Q34<7) | (data$Q34==2)) + 0;
+
+
+# ################################################################## #
+# ##### Explanatory variables for information seeking behavior ##### #
+# ################################################################## #
+# Dummy for whether or not a librarian visited their class
+# College (dummies for CBA and CSH (College of Science and Health), CLS is the baseline)
+# How much professors encouraged students to use library search tools (Dummies for occasionally and frequently, rarely or never is the baseline)
+# How often professors give students a reference list to assist with research (Dummies for occasionally and frequently, rarely or never is the baseline)
+# Age  (ratio)
+# GPA
+# ACT score
+# parents' highest level of education (dummies for some college and four year college - less than college is the baseline)
+# Race (dummy for non-white)
+
+<<<<<<< library.r
+v.explain <- cbind(v.encourage.freq,v.list.occ,v.class,v.cba,v.csh,v.age,v.act,v.parents.fourcollege,v.female,v.nonwhite)
+=======
+v.explain <- cbind(v.encourage.occ,v.list.occ,v.class,v.cba,v.csh,v.age,v.act,v.parents.fourcollege,v.female,v.nonwhite)
+>>>>>>> 1.4
+lm.gethelp <- lm(v.gethelp ~ v.explain)
+lm.onlinesearch <- lm(v.onlinesearch ~ v.explain)
+lm.browse <- lm(v.browse ~ v.explain)
+lm.res.books <- lm(v.res.books ~ v.explain);
+lm.res.articles <- lm(v.res.articles ~ v.explain);
+lm.res.poppress <- lm(v.res.poppress ~ v.explain);
+lm.res.wiki <- lm(v.res.wiki ~ v.explain);
+lm.ebsco <- lm(v.ebsco ~ v.explain);
+lm.subject <- lm(v.subject ~ v.explain);
+lm.searchdata <- lm(v.searchdata ~ v.explain)
+lm.start.lib <- lm(v.start.lib ~ v.explain)
+lm.start.popsearch <- lm(v.start.popsearch ~ v.explain);
+lm.start.googlescholar <- lm(v.start.googlescholar ~ v.explain)
+
+#Summary statistics for attributes students value
+tb_relevant <- table(data$Q36_6); #Relevant subject matter
+med_relevant <- interp.median(data$Q36_6);
+tb_fulltext <- table(data$Q36_1); #Full text available online
+med_fulltext <- interp.median(data$Q36_1);
+tb_understand <- table(data$Q36_8); #Understand content
+med_understand <- interp.median(data$Q36_8);
+tb_recent <- table(data$Q36_2); #Recent pub
+med_recent <- interp.median(data$Q36_2);
+tb_authorrep <- table(data$Q36_4); #Author reputation
+med_authorrep <- interp.median(data$Q36_4);
+tb_peerrev <- table(data$Q36_3); #Peer reviewed
+med_peerrev <- interp.median(data$Q36_3);
+tb_sourcerep <- table(data$Q36_5); #Source reputation
+med_sourcerep <- interp.median(data$Q36_5);
+tb_avail <- table(data$Q36_7); #Physical availability 
+med_avail <- interp.median(data$Q36_7);
+
+## Ordered logit for electronic databases
+lm.elecdatabase <- polr(factor(v.searchdata) ~ v.explain)
